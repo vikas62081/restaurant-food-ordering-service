@@ -1,18 +1,24 @@
 import datetime
 import re
+from urllib.parse import quote_plus
 
 from bson import ObjectId   
 from flask import Flask, render_template, request, redirect, session
 import pymongo
 import os.path
-username="simplified"
-password="simplified123!"
-uri="mongodb+srv://"+username+":"+password+"@cluster0.s9z2dp0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
+username="noSql"
+password="Nosqlproject@123"
+encoded_username = quote_plus(username)
+encoded_password = quote_plus(password)
+uri="mongodb+srv://"+encoded_username+":"+encoded_password+"@nosql.b3i7a.mongodb.net/?retryWrites=true&w=majority&appName=noSql"
+
+conn = pymongo.MongoClient(uri, tls=True, tlsAllowInvalidCertificates=True)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 FOOD_ITEMS_PATH = APP_ROOT + "/static/food_items/"
 RESTAURANT_PROFILE_PATH = APP_ROOT + "/static/restaurant_profile/"
-conn = pymongo.MongoClient(uri ,tls=True, tlsAllowInvalidCertificates=True)
+
 my_database = conn["restaurant_food_ordering"]
 admin_collection = my_database["admin"]
 food_categories_collection = my_database["food_categories"]
