@@ -1,0 +1,39 @@
+{% include 'home_head.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Type Of restaurant</title>
+    <link rel="stylesheet" href="/static/css/categories.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card1">
+            <form action="restaurant_type_action" method="post">
+                <div class="card1-text">Restaurant Types</div>
+                    <div class="input-text">
+                        <label for="restaurant_type_name" class="label">Restaurant Type Name: </label><br>
+                        <input type="text" id="restaurant_type_name"  name="restaurant_type_name" class="input" placeholder="Enter Restaurant Type Name" required>
+                    </div>
+                <input type="submit" class="button" value="Add Type">
+            </form>
+            {{message}}
+        </div>
+        <div class="card2">
+            <div class="card2-text">Restaurant Types List</div>
+            <table class="table">
+                <tbody>
+                {% for restaurant_type in restaurant_types %}
+                <tr>
+                    <td>{{restaurant_type['restaurant_type_name']}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

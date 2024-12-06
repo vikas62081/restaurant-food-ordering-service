@@ -1,0 +1,89 @@
+{% if session['role'] == "restaurant" %}
+    {% include 'restaurant_home.html' %}
+{% endif %}
+{% if session['role'] == "customer"%}
+    {% include 'customer_home.html' %}
+{% endif %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View Menu</title>
+    <link rel="stylesheet" href="/static/css/view.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card1">
+            <form action="view_menu">
+                <div class="form">
+                    {% if session['role'] != "restaurant" %}
+                    <div class="form-item">
+                        <label class="label">Select Restaurant</label>
+                        <select name="restaurant_id" class="input1">
+                            <option value="">Choose Restaurant</option>
+                            {% for restaurant in restaurants %}
+                            <option value="{{restaurant['_id']}}" {% if str(restaurant['_id']) == str(restaurant_id)%} selected {% endif %}>{{restaurant['name']}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endif %}
+                    <div class="form-item">
+                        <label class="label">Select Food Categories</label>
+                        <select name="food_category_id" class="input1"  onchange="this.form.submit()">
+                            <option value="">Choose Food Category</option>
+                            {% for food_category in food_categories %}
+                            <option value="{{food_category['_id']}}" {% if str(food_category['_id']) == str(food_category_id)%} selected {% endif %}>{{food_category['category_name']}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <label class="label">Sub Categories</label>
+                        <select name="food_sub_category_id" class="input1" >
+                            <option value="">Choose Food Sub Category</option>
+                            {% for food_sub_category in food_sub_categories %}
+                            <option value="{{food_sub_category['_id']}}" {% if str(food_sub_category['_id']) == str(food_sub_category_id)%} selected {% endif %}>{{food_sub_category['food_sub_category_name']}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <label for="food_item_name">Search Food Item</label>
+                        <input type="text" id="food_item_name" name="food_item_name" class="input1" value="{{food_item_name}}" placeholder="Search Food Items">
+                    </div>
+                    <div class="form-item">
+                        <input type="submit" id="search" name="search" class="button1" placeholder="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card2">
+            <div class="form1">
+                {% for menu in menus %}
+                <div class="form-item1">
+                    <div class="image"><img src="../static/food_items/{{menu['food_item_image']}}" class="img" alt=""></div>
+                    <div><h4>{{menu['food_item_name']}}</h4></div>
+                    <div>$ {{menu['price']}}</div>
+                    <div>{{menu['description']}}</div>
+                    <div class="quantity">{{menu['quantity']}}</div>
+                    {% if session['role'] == "customer" %}
+                    <form action="add_to_cart">
+                        <div class="form-cart">
+                            <input type="hidden" name="menu_id" value="{{menu['_id']}}">
+                            <div class="form-text">
+                                <label for="quantity">Quantity:-</label><br>
+                                <input type="number" id="quantity" name="quantity" class="input2" placeholder="Quantity Of Item" required>
+                            </div>
+                            <div>
+                                <input type="submit" class="button2" value="Add To Cart">
+                            </div>
+                        </div>
+                    </form>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

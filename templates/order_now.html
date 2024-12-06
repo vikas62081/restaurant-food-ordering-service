@@ -1,0 +1,40 @@
+{% include 'customer_home.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments</title>
+    <link rel="stylesheet" href="/static/css/registrations.css">
+</head>
+<body>
+     <div class="container">
+          <div class="card">
+               <form action="order_now_action" method="post">
+                    <div class="text">Payment Details</div>
+                        <input type="hidden" name="total_price" value="{{total_price}}">
+                        <input type="hidden" name="order_id" value="{{order_id}}">
+                        <div class="form-item">Total Price: $ {{total_price}}</div>
+                        <div class="form">
+                             <div class="form-item">
+                                  <label for="card_number" class="label">Card Number: </label><br>
+                                  <input type="number" id="card_number"  name="card_number" class="input" placeholder="Enter Card Number" required>
+                             </div>
+                            <div class="form-item">
+                                  <label for="card_holder_name" class="label">Card Holder Name: </label><br>
+                                  <input type="text" id="card_holder_name"  name="card_holder_name" class="input" placeholder="Enter Card Holder Name" required>
+                            </div>
+                            <div class="form-item">
+                                  <label for="expired_date" class="label">Expired Date: </label><br>
+                                  <input type="text" id="expired_date"  name="expired_date" class="input" placeholder="Enter Expired Date" required>
+                            </div>
+                            <div class="form-item">
+                                  <label for="cvv" class="label">CVV Number: </label><br>
+                                  <input type="number" id="cvv"  name="cvv" class="input" placeholder="Enter CVV Number" required>
+                            </div>
+                            <input type="submit" class="button" value="PAY">
+                        </div>
+               </form>
+          </div>
+     </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% include 'restaurant_home.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/static/css/registrations.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="menu-text">Add Menu</div>
+            <form action="add_menu" method="post" enctype="multipart/form-data">
+                <div class="menu-text">
+                    <label class="label">Select Food Categories</label>
+                    <select name="food_category_id" class="input" required>
+                        <option value="">Choose Food Category</option>
+                        {% for food_category in food_categories %}
+                        <option value="{{food_category['_id']}}">{{food_category['category_name']}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+            <form action="add_menu_action" method="post" enctype="multipart/form-data">
+                <div class="form">
+                    <div class="form-item">
+                        <label class="label">Sub Categories</label>
+                        <select name="food_sub_category_id" class="input" required>
+                            <option value="">Choose Food Sub Category</option>
+                            {% for food_sub_category in food_sub_categories %}
+                            <option value="{{food_sub_category['_id']}}">{{food_sub_category['food_sub_category_name']}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <label for="food_item_name">Food Item Name</label>
+                        <input type="text" id="food_item_name" name="food_item_name" class="input" placeholder="Enter Food Item Name" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" name="price" class="input" placeholder="Enter Price" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" class="input" placeholder="Description About Food Item" required></textarea>
+                    </div>
+                    <div class="form-item">
+                        <label for="food_item_image">Food Item Image</label>
+                        <input type="file" id="food_item_image" name="food_item_image" class="input" required>
+                    </div>
+                </div>
+                <input type="submit" class="button" value="Add Food Items">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

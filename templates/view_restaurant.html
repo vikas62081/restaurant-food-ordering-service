@@ -1,0 +1,73 @@
+{% include 'home_head.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Restaurant</title>
+    <link rel="stylesheet" href="/static/css/view.css">
+</head>
+<body>
+    <div class="container-view">
+        {% for restaurant in restaurants %}
+        {% set locations = get_location_by_location_id(restaurant['location_id'])%}
+        <div class="container-item w-30">
+            <div class="card">
+                <div class="card-item">
+                    <div class="card-label">
+                        Restaurant Name:-
+                    </div>
+                    <div class="card-text">
+                        {{restaurant['name']}}
+                    </div>
+                    <div class="card-label">
+                        Email:-
+                    </div>
+                    <div class="card-text">
+                        {{restaurant['email']}}
+                    </div>
+                    <div class="card-label">
+                        Phone Number:-
+                    </div>
+                    <div class="card-text">
+                        {{restaurant['phone']}}
+                    </div>
+                    <div class="card-label">
+                        Location:-
+                    </div>
+                    <div class="card-text">
+                        {{locations['location_name']}}
+                    </div>
+                    <div class="card-label">
+                        Address:-
+                    </div>
+                    <div class="card-text">
+                        {{restaurant['address']}}
+                    </div>
+                    <div class="card-label">
+                        About:-
+                    </div>
+                    <div class="card-text" style="height:50px;overflow:auto">
+                        {{restaurant['about']}}
+                    </div>
+                    <div class="card-label">
+                        Status:-
+                    </div>
+                    <div class="card-text">
+                        {{restaurant['status']}}
+                    </div>
+                    {% if restaurant['status'] == "Not verified" %}
+                    <div class="input">
+                        <a href="verify?restaurant_id={{restaurant['_id']}}">Verify</a>
+                    </div>
+                    {% endif %}
+                    {% if restaurant['status'] == "Verified" %}
+                    <div class="input">
+                        <a href="verify2?restaurant_id={{restaurant['_id']}}">DE-Verify</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% include 'restaurant_home.html' %}
+<div class="container">
+  <div class="text">Welcome {{restaurant['name']}}  </div>
+  <div class="text-content">
+    (Email: {{restaurant['email']}},
+    Phone Number: {{restaurant['phone']}},
+    Address: {{restaurant['address']}})
+  </div>
+  <div class="card3">
+      <img src="/static/restaurant_profile/{{restaurant['restaurant_profile']}}" class="card3-img">
+  </div>
+</div>

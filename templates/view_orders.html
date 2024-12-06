@@ -1,0 +1,113 @@
+{% if session['role'] == "restaurant" %}
+    {% include 'restaurant_home.html' %}
+{% endif %}
+{% if session['role'] == "customer"%}
+    {% include 'customer_home.html' %}
+{% endif %}
+{% if session['role'] == "delivery boy"%}
+    {% include 'delivery_boy_home.html' %}
+{% endif %}
+<link rel="stylesheet" href="/static/css/view.css">
+{% for order in orders%}
+{% set total_price = namespace(value=0) %}
+{% set restaurant = get_restaurant_by_restaurant_id(order['restaurant_id']) %}
+{% set customer = get_customers_by_customer_id(order['customer_id']) %}
+{% set order_items = get_order_items_by_order_id(order['_id']) %}
+<div class="container1">
+    <div class="card1">
+        <div class="row">
+            <div class="w-20">
+                <label class="label">Order Number</label>
+                <div class="card1-text">{{order['customer_id']}}</div>
+            </div>
+            <div class="w-20">
+                <label class="label">Restaurant</label>
+                <div class="card-text">
+                    {{restaurant['name']}} ({{restaurant['phone']}})
+                </div>
+            </div>
+            <div class="w-20">
+                <label class="label">Date</label>
+                <div class="card-text">
+                    {{order['date'].strftime("%d-%m-%Y %I:%M %p")}}
+                </div>
+            </div>
+            <div class="w-20">
+                <label class="label">Status</label>
+                <div class="card-text">
+                    {{order['status']}}
+                </div>
+            </div>
+            <div class="w-20">
+                {% if 'delivery_boy_id' in order %}
+                    {% set delivery_boy = get_delivery_boy_by_delivery_boy_id(order['delivery_boy_id']) %}
+                    <label class="label">Delivery Boy</label>
+                    <div class="card-text">
+                        {{delivery_boy['name']}} ({{delivery_boy['phone']}})
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order_item in order_items %}
+            {% set menu = get_menu_by_menu_id(order_item['menu_id']) %}
+            {% set total_price.value = total_price.value+int(order_item['quantity'])*int(menu['price']) %}
+                <tr>
+                    <td class="img1"><img src="static/food_items/{{menu['food_item_image']}}" class="img1" alt=""></td>
+                    <td>{{menu['food_item_name']}}</td>
+                    <td>$ {{menu['price']}}</td>
+                    <td>{{order_item['quantity']}}</td>
+                    <td>$ {{int(menu['price'])*int(order_item['quantity'])}}</td>
+                    <td><a href="Remove_items?order_item_id={{order_item['_id']}}&order_id={{order['_id']}}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="card-text">
+        total price: $ {{total_price.value}}
+    </div>
+    {% if order['status'] != 'cart' %}
+        <a href="view_payments?order_id={{order['_id']}}" class="link">Payments</a>
+    {% endif %}
+    {% if session['role'] == 'customer' %}
+        {% if order['status'] == 'cart' %}
+            <a href="order_now?order_id={{order['_id']}}&total_price={{total_price.value}}" class="link">Order Now</a>
+        {% endif %}
+        {% if order['status'] == 'ordered' %}
+                <a href="cancel?order_id={{order['_id']}}&status=cancelled&view_type=history" class="link">Cancel</a>
+        {% endif %}
+        {% if order['status'] == 'dispatched' %}
+                <a href="set_status?order_id={{order['_id']}}&status=delivered&view_type=history" class="link">Mark as Delivered</a>
+        {% endif %}
+    {% endif %}
+    {% if session['role'] == 'restaurant' %}
+        {% if order['status'] == 'ordered' %}
+                <a href="set_status?order_id={{order['_id']}}&status=preparing&view_type=processing" class="link">Mark as Preparing</a>
+        {% endif %}
+        {% if order['status'] == 'preparing' %}
+                <a href="set_status?order_id={{order['_id']}}&status=prepared&view_type=processing" class="link">Mark as Prepared</a>
+        {% endif %}
+    {% endif %}
+    {% if session['role'] == 'delivery boy' %}
+        {% if order['status'] == 'prepared' %}
+                <a href="set_status2?order_id={{order['_id']}}&status=assigned to delivery boy&view_type=processing" class="link">Accept Order</a>
+        {% endif %}
+        {% if order['status'] == 'assigned to delivery boy' %}
+                <a href="set_status2?order_id={{order['_id']}}&status=dispatched&view_type=processing" class="link">Dispatch</a>
+        {% endif %}
+    {% endif %}
+
+</div>
+{% endfor %}

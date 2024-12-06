@@ -1,0 +1,177 @@
+*{
+    box-sizing: border-box;
+}
+.container1{
+    width:100%;
+    margin:20px auto;
+    padding:10px;
+    background-color:white;
+    border:1px solid black;
+    border-radius:14px;
+}
+.card{
+     margin: 20px;
+     padding:20px;
+     background-color: aliceblue;
+     border: 1px solid lightgray;
+}
+.card-label{
+     font-size: 20px;
+     font-weight: bold;
+     color: rgb(12, 9, 9);
+}
+.card-text{
+     font-size: 20px;
+     color:rgb(15, 13, 13);
+}
+.input{
+     padding: 10px;
+}
+.button{
+     font-size: 15px;
+     padding: 10px 10px;
+     border-radius: 14px;
+}
+.button:hover{
+     background-color:rgb(48, 41, 41) ;
+     color:white;
+     padding: 10px;
+}
+table {
+    width: 100%;
+}
+td {
+    text-align:center;
+}
+table, th, td{
+     border:1px solid black;
+     border-collapse:collapse;
+}
+.table{
+     text-align: center;
+     padding: 5px;
+}
+tr:nth-child(even){
+     background-color: #D6EEEE;
+}
+th:nth-child(even),th:nth-child(even){
+     background-color: #D6EEEE;
+}
+a:hover {
+     color: white;
+     padding: 5px;
+     border-radius:10px;
+     background-color: royalblue;
+}
+.card1{
+    margin:20px;
+    padding: 10px;
+    background-color:white;
+}
+.form{
+     display: flex;
+     justify-content:space-around;
+}
+.form-item{
+     padding: 10px;
+     font-size: 18px;
+     color: black;
+}
+.input1{
+     width: 100%;
+     padding: 2px;
+     border: 1px solid lightgray;
+     border-radius: 8px;
+     font-size: 14px;
+}
+.button1{
+     margin-top:23px;
+     font-size: 15px;
+     padding: 10px 10px;
+     border-radius: 14px;
+}
+.button1:hover{
+     background-color:rgb(48, 41, 41) ;
+     color:white;
+     padding: 10px;
+}
+.form1{
+     display: flex;
+     flex-wrap: wrap;
+}
+.form-item1{
+     width:21%;
+     position: relative;
+     padding: 10px;
+     margin: 20px;
+     font-size: 18px;
+     color: rgb(5, 5, 4);
+     background-color: white;
+     border: 1px solid lightgray;
+     border-radius: 14px;
+}
+.img{
+     width: 100%;
+     height:30vh;
+     border-radius: 14px;
+}
+.quantity{
+     background-color: #0c0e0e85;
+     border-radius: 10px;
+     padding: 10px;
+     position: absolute;
+     right: 10px;
+     bottom: 90px;
+     color: white;
+}
+.form-cart{
+     position: relative;
+}
+.button2{
+     position: absolute;
+     bottom: 1px;
+     right: 1px;
+     margin-left: 200px;
+     font-size: 15px;
+     padding: 10px 10px;
+     border-radius: 14px;
+}
+.button2:hover{
+     background-color:rgb(48, 41, 41) ;
+     color:white;
+     padding: 10px;
+}
+.input2{
+    border:none;
+    border:1px solid lightgray;
+    border-radius:14px;
+    padding:5px;
+}
+.row {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding:10px;
+}
+
+.w-20 {
+    width: 20%;
+}
+.img1{
+    width:50px;
+}
+.link{
+    margin-left:1100px;
+}
+.container-view{
+    display:flex;
+}
+.w-30 {
+    width: 30%;
+}
+.w-40 {
+    width: 40%;
+}
+.w-50{
+    width:50%;
+}

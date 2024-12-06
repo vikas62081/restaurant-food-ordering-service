@@ -1,0 +1,48 @@
+{% if session['role'] == "restaurant" %}
+    {% include 'restaurant_home.html' %}
+{% endif %}
+{% if session['role'] == "customer"%}
+    {% include 'customer_home.html' %}
+{% endif %}
+{% if session['role'] == "delivery boy"%}
+    {% include 'delivery_boy_home.html' %}
+{% endif %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Payments</title>
+    <link rel="stylesheet" href="/static/css/view.css">
+</head>
+<body>
+    <div class="card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Card Number</th>
+                    <th>Card Holder Name</th>
+                    <th>Total Price</th>
+                    <th>Expired Date</th>
+                    <th>Cvv</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for payment_detail in payment_details %}
+                <tr>
+                    <td>{{payment_detail['order_id']}}</td>
+                    <td>{{payment_detail['card_number']}}</td>
+                    <td>{{payment_detail['card_holder_name']}}</td>
+                    <td>{{payment_detail['total_price']}}</td>
+                    <td>{{payment_detail['expired_date']}}</td>
+                    <td>{{payment_detail['cvv']}}</td>
+                    <td>{{payment_detail['date'].strftime("%d-%m-%Y %I:%M %p")}}</td>
+                    <td>{{payment_detail['status']}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
