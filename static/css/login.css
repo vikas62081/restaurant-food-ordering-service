@@ -6,7 +6,7 @@
      text-decoration: none;
 }
 body{
-     background-color: rgb(48, 41, 41);
+     /* background-color: rgb(48, 41, 41); */
 }
 .container{
      display: flex;
@@ -20,8 +20,7 @@ body{
      width: 100%;
      margin:25px;
      padding:25px 50px;
-     background-color: rgba(10, 10, 10, 0.438);
-     border: 1px solid lightgray;
+     background-color: #b9c2bd;
      border-radius: 14px;
 }
 .card2{
@@ -35,7 +34,7 @@ body{
      width: 60%;
 }
 .img{
-     width: 100%;
+     width: 500px;
      border-radius: 14px;
 }
 .text{
@@ -43,11 +42,11 @@ body{
      font-weight: bold;
      text-align: center;
      margin-bottom: 20px;
-     color: antiquewhite;
+     /* color: antiquewhite; */
 }
 .input-text{
      font-size: 25px;
-     color: antiquewhite;
+     /* color: antiquewhite; */
 }
 .input{
      width: 100%;
@@ -56,7 +55,7 @@ body{
      border-radius: 2px;
      padding: 8px;
      font-size: 18px;
-     margin-top: 20px;
+     /*margin-top: 20px;*/
      margin-bottom: 15px;
 }
 .button{
@@ -79,4 +78,7 @@ body{
 }
 .register_link a{
      color: rgb(240, 163, 62);
+}
+.label{
+     font-size: 20px;
 }

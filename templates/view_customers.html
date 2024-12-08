@@ -22,7 +22,7 @@
             {% for customer in customers %}
             {% set locations = get_location_by_location_id(customer['location_id'])%}
                 <tr>
-                    <td>{{customer['name']}}</td>
+                    <td>{{customer['first_name']}}</td>
                     <td>{{customer['phone']}}</td>
                     <td>{{customer['email']}}</td>
                     <td>{{locations['location_name']}}</td>

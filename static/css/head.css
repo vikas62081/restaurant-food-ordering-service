@@ -34,7 +34,7 @@
     position: sticky;
     top: 0;
     z-index:200;
-    background-color:var(--primary-color);
+    background-color:#d4d9dc;
 
 }
 .nav{

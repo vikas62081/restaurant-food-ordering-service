@@ -7,7 +7,8 @@ from flask import Flask, render_template, request, redirect, session
 import pymongo
 import os.path
 
-username="noSql"
+
+username="noSql" 
 password="Nosqlproject@123"
 encoded_username = quote_plus(username)
 encoded_password = quote_plus(password)
