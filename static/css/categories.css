@@ -13,12 +13,14 @@
      margin: 25px;
      padding:50px 50px;
      background-color: white;
+     border-radius: 4px;
 }
 .card2{
      width: 50%;
      margin: 25px;
      padding:50px 50px;
      background-color: white;
+     border-radius: 4px;
 }
 .card1-text{
      font-size:30px;
@@ -32,23 +34,34 @@
      text-align: center;
      margin-bottom: 10px;
 }
+
+.label{
+     font-size: 20px;
+}
+
 .input-text{
      font-size: 20px;
 }
 .input{
      padding:10px;
      width: 70%;
-     border-radius: 8px;
+     border-radius: 4px;
      font-size: 18px;
-     margin-top: 20px;
-     margin-bottom: 15px;
+     margin-top: 4px;
+     margin-bottom: 16px;
 }
 .button{
-     background-color: rgb(14, 106, 163);
+     background-color: var(--primary-color);
      font-size: 20px;
-     padding: 10px 10px;
-     border-radius: 14px;
+     padding: 10px;
+     border-radius: 4px;
      margin-bottom: 10px;
+}
+.button:hover{
+     background-color: var(--secondary-color);
+     color:white;
+     cursor: pointer;
+     
 }
 .list{
     border: 1px solid lightgray;
@@ -56,8 +69,12 @@
 .list-item {
     display: block;
     border: 1px solid lightgray;
-    padding: 5px;
+    padding: 8px;
+    text-transform: capitalize;
 }
+tr:hover, .list-item:hover {
+     background-color: var(--primary-color);
+ }
 table, th, td {
   border: 1px solid ;
 }
@@ -66,6 +83,10 @@ table, th, td {
     width: 100%;
     border-collapse: collapse;
 }
-td {
-     padding: 5px;
+thead{
+     background-color: var(--primary-color);
+}
+td,th {
+     padding: 8px;
+    text-transform: capitalize;
 }

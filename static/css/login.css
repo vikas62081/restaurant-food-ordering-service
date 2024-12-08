@@ -17,18 +17,21 @@ body{
      margin-top: 20px;
 }
 .card1{
+     min-height: 450px;
      width: 100%;
-     margin:25px;
+     margin:75px 25px;
      padding:25px 50px;
      background-color: #b9c2bd;
      border-radius: 14px;
+     padding-top: 50px;
+
 }
 .card2{
      padding:25px 50px;
      border-radius: 14px;
 }
 .w-30{
-     width: 30%;
+     width: 35%;
 }
 .w-60{
      width: 60%;
@@ -53,15 +56,16 @@ body{
      border: 1px solid lightgray;
      box-shadow: 2PX solid black;
      border-radius: 2px;
-     padding: 8px;
+     padding: 12px;
      font-size: 18px;
-     /*margin-top: 20px;*/
+     margin-top: 4px;
      margin-bottom: 15px;
 }
 .button{
+     margin-top: 16px;
      border: 1px solid lightgray;
      font-size: 18px;
-     padding: 8px;
+     padding: 12px;
      border-radius: 2px;
      margin-bottom: 10px;
      color:black;
@@ -70,14 +74,14 @@ body{
 .button:hover{
      background-color: rgb(48, 41, 41);
      color: white;
-     padding:10px;
 }
 .register_link{
+     text-align: center;
      font-size: 20px;
      color: rgb(244, 247, 247);
 }
 .register_link a{
-     color: rgb(240, 163, 62);
+     color: #2868de;
 }
 .label{
      font-size: 20px;

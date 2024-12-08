@@ -9,41 +9,41 @@
     <div class="container-view">
         {% for delivery_boy in delivery_boys %}
         {% set locations = get_location_by_location_id(delivery_boy['location_id'])%}
-        <div class="container-item w-30">
+        <div class="container-item">
             <div class="card">
                 <div class="card-item">
                     <div class="card-label">
-                        Delivery Boy Name:-
+                        Delivery Boy Name:
                     </div>
                     <div class="card-text">
                         {{delivery_boy['name']}}
                     </div>
                     <div class="card-label">
-                        Email:-
+                        Email:
                     </div>
                     <div class="card-text">
                         {{delivery_boy['email']}}
                     </div>
                     <div class="card-label">
-                        Phone Number:-
+                        Phone Number:
                     </div>
                     <div class="card-text">
                         {{delivery_boy['phone']}}
                     </div>
                     <div class="card-label">
-                        Location:-
+                        Location:
                     </div>
                     <div class="card-text">
                         {{locations['location_name']}}
                     </div>
                     <div class="card-label">
-                        Address:-
+                        Address:
                     </div>
                     <div class="card-text">
                         {{delivery_boy['address']}}
                     </div>
                     <div class="card-label">
-                        Status:-
+                        Status:
                     </div>
                     <div class="card-text">
                         {{delivery_boy['status']}}

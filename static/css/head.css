@@ -10,25 +10,31 @@
     --secondary-color:#335C67;
     --btn-primary-color:#0353A4;
 }
+.logo{
+    padding:16px;
+    margin-left: 16px;
+    width: 150px !important;
+    height: 80px;
+}
+.index-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .index-image{
     position: relative;
-    height: 100vh;
+    height: 92vh;
     width: 100%;
     overflow: hidden;
 }
 .index-text{
     position: absolute;
-    top: 200px;
     text-align: center;
-    font-family: "Permanent Marker", cursive;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 50px;
     background-color: rgba(168, 152, 152, 0);
-    border-radius: 14px;
-    color: rgb(252, 243, 243);
-    width: 300px;
-    margin-left: 50px;
-    padding: 20px;
+    color: white;
 }
 .navbar{
     position: sticky;
@@ -54,15 +60,19 @@ li{
     list-style:none;
     display: inline-block;
 }
+
 li a{
+    padding: 4px 8px;
     color:rgb(7, 6, 6);
     font-size: 25px;
     font-weight: bold;
     margin-right: 25px;
+    border-radius: 4px;
 }
+
 li a:hover{
-    padding: 7px;
     color: white;
     background-color: rgb(48, 41, 41);
-    border-radius: 15px;
+   
 }
+
