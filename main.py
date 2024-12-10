@@ -38,6 +38,10 @@ delivery_boys_collection = my_database["delivery_boys"]
 app = Flask(__name__)
 app.secret_key = "restaurant_food_ordering"
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)  # Change port to 8080
+    
+    
 query = {}
 count = admin_collection.count_documents(query)
 if count == 0:
