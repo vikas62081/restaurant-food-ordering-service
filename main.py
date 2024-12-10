@@ -38,9 +38,7 @@ delivery_boys_collection = my_database["delivery_boys"]
 app = Flask(__name__)
 app.secret_key = "restaurant_food_ordering"
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)  # Change port to 8080
-    
+ 
     
 query = {}
 count = admin_collection.count_documents(query)
@@ -724,4 +722,5 @@ def view_payments():
     payment_details = list(payment_details)
     return render_template("view_payments.html", payment_details=payment_details, order_id=order_id)
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)  # Change port to 8080
